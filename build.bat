@@ -1,58 +1,57 @@
 @echo off
 
 :=====================================================
-:ŠÂ‹«İ’è
+:ç’°å¢ƒè¨­å®š
 :=====================================================
-:•¶šCü
+:æ–‡å­—ä¿®é£¾
 set R=[31;1m
 set Y=[33;1m
 set BACK_B=[44m
 set BACK_C=[46m
 set DEF=[0m
 
-:ƒrƒ‹ƒh—pŠÂ‹«•Ï”İ’è
+:ãƒ“ãƒ«ãƒ‰ç”¨ç’°å¢ƒå¤‰æ•°è¨­å®š
 set GOPATH=%CD%
 
 :=====================================================
-:ƒrƒ‹ƒhŠJn
+:ãƒ“ãƒ«ãƒ‰é–‹å§‹
 :=====================================================
 cd %GOPATH%\src\main
-go build
+go install
 echo.
 if not %errorlevel% == 0 (
   echo %R%Build Error%DEF%
-  goto I—¹
+  goto çµ‚äº†
 ) else (
   echo %Y%Build Success%DEF%
 )
-go install
 
 :=====================================================
-:Às
+:å®Ÿè¡Œ
 :=====================================================
 echo.
-echo %BACK_C%             ---- run result start ----                     %BACK_B%
+echo %BACK_C%             ---- program start ----                     %BACK_B%
 %GOPATH%\bin\main.exe
 echo %DEF%
-echo %BACK_C%             ---- run result end   ----                     %DEF%
+echo %BACK_C%             ---- program end   ----                     %DEF%
 
 :=====================================================
-:I—¹
+:çµ‚äº†
 :=====================================================
 echo.
 echo.
 
-:¿–â
+:è³ªå•
 setlocal
-set /p answer="ÄÀs‚µ‚Ü‚·‚©H (Y/n/f:®Œ`) : %answer%"
+set /p answer="å†å®Ÿè¡Œã—ã¾ã™ã‹ï¼Ÿ (Y/n/f:æ•´å½¢) : %answer%"
 if /I "%answer%" == "N" (
   exit 0
 ) else if /I "%answer%" == "F" (
   endlocal
   go fmt
-  goto ¿–â
+  goto è³ªå•
 ) else (
   endlocal
   cls
-  goto ƒrƒ‹ƒhŠJn
+  goto ãƒ“ãƒ«ãƒ‰é–‹å§‹
 )
